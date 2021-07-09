@@ -110,9 +110,6 @@ function res(trueOrFalse) {
     let yPoint = cnvsWidth/2 + 5;
     let circleRad = cnvsWidth/2 - 40;
 
-    // let names = document.getElementsByClassName('names')[0].children;
-    // let items = document.getElementsByClassName('select-wrapper vis');
-
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, cnvsWidth, cnvsHeight);
 
@@ -148,29 +145,24 @@ function res(trueOrFalse) {
         j++;
     }
 
-    let angle_start = 0, angle_start_text = 0;
+    let angle_start = 0;
     let angle_end = 0;
     let step = 0;
     let len = document.getElementsByClassName('vis').length/2;
     if(len === 4) {
         angle_end = 90;
-        //angle_start_text = 115;
     }
     else if(len === 6) {
         angle_end = 60;
-        //angle_start_text = 105;
     }
     else if(len === 8) {
         angle_end = 45;
-        //angle_start_text = 90;
     }
     else if(len === 10) {
         angle_end = 36;
-        //angle_start_text = 90;
     }
     else if(len === 12) {
         angle_end = 30;
-        //angle_start_text = 90;
     }
     step = angle_end;
 
@@ -194,39 +186,7 @@ function res(trueOrFalse) {
         ctx.stroke();
         ctx.closePath();
     }
-
-    // for(let i = 0; i < len; i++){
-    //     ctx.font = "bold 20px Serif";
-    //     ctx.fillStyle = colors[i];
-    //     ctx.fillTextCircle(names[i].value, xPoint, yPoint, circleRad, radians(angle_start_text), len);
-    //     angle_start_text += 360/len;
-    // }
 }
-
-// CanvasRenderingContext2D.prototype.fillTextCircle = function(text, x, y, radius, startRotation, numOfSectors){
-//     // let coef = 1;
-//     // if(numOfSectors === 4)
-//     //     coef = 0.7;
-//     // // if(numOfSectors === 6)
-//     // //     coef = 1;
-//     // if(numOfSectors === 8)
-//     //     coef = 2;
-//     // if(numOfSectors === 10 || numOfSectors === 12)
-//     //     coef = 2;
-//     let numRadsPerLetter = Math.PI/text.length/numOfSectors;
-//     this.save();
-//     this.translate(x,y);
-//     this.rotate(startRotation);
-
-//     for(let i = 0; i < text.length; i++){
-//        this.save();
-//        this.rotate(i*numRadsPerLetter);
- 
-//        this.fillText(text[i], 0, -radius - 15);
-//        this.restore();
-//     }
-//     this.restore();
-// }
 
 function downloadImage(el) {
   let image = canvas.toDataURL("image/jpg");
